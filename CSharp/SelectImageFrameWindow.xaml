@@ -1,0 +1,15 @@
+﻿<Window x:Class="WpfSimpleBarcodeReaderDemo.SelectImageFrameWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Frame Select" Height="151" Width="376" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <DockPanel Name="dockPanel1" VerticalAlignment="Stretch">
+            <Grid Name="grid1">
+                <Slider Margin="10,48,10,31" Name="frameSelectSlider" TickPlacement="TopLeft" Value="1" SmallChange="1" Minimum="1" Maximum="3" IsSnapToTickEnabled="True" />
+                <Label Margin="167,23,137,0" Name="selectedFrameLabel" Height="26" VerticalAlignment="Top">1</Label>
+                <Label Height="28" Name="labelFrameCount" VerticalAlignment="Top">This image contains {0} frames, select frame:</Label>
+                <Button Height="23" Margin="138,0,141,10" Name="button1" VerticalAlignment="Bottom" Click="okButton_Click">OK</Button>
+            </Grid>
+        </DockPanel>
+    </Grid>
+</Window>
