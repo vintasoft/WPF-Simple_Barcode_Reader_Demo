@@ -335,6 +335,8 @@ namespace WpfSimpleBarcodeReaderDemo
             }
             if (barcodeCode32.IsChecked == true)
                 _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.Code32);
+            if (barcodeI25ChecksumISO16390.IsChecked == true)
+                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.Interleaved2of5ChecksumISO16390);
             if (barcodeDeutschePostIdentcode.IsChecked == true)
                 _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.DeutschePostIdentcode);
             if (barcodeDeutschePostLeitcode.IsChecked == true)

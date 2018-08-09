@@ -92,6 +92,7 @@
                                 <CheckBox Height="16" Name="barcodeI25" Width="120" DockPanel.Dock="Top">Interleaved 2 of 5</CheckBox>
                                 <CheckBox Height="16" Name="barcodeOPC" Margin="20,0,0,0" Width="120" DockPanel.Dock="Top">OPC</CheckBox>
                                 <CheckBox Height="16" Name="barcodeITF14" Margin="20,0,0,0" Width="120" DockPanel.Dock="Top">ITF-14</CheckBox>
+                                <CheckBox Height="16" Name="barcodeI25ChecksumISO16390" Margin="20,0,0,0" Width="120" DockPanel.Dock="Top">CH ISO16390</CheckBox>
                                 <CheckBox Height="16" Name="barcodeS25" Width="120" DockPanel.Dock="Top">Standard 2 of 5</CheckBox>
                                 <CheckBox Height="16" Name="barcodeMatrix2of5" Width="120" DockPanel.Dock="Top">Matrix 2 of 5</CheckBox>
                                 <CheckBox Height="16" Name="barcodeIATA2of5" Width="120" DockPanel.Dock="Top">IATA 2 of 5</CheckBox>
