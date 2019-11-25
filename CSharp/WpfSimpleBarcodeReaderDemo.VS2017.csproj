@@ -80,7 +80,7 @@
     <Reference Include="System.Xml" />
     <Reference Include="UIAutomationProvider" />
     <Reference Include="Vintasoft.WpfBarcode">
-      <HintPath>packages\Vintasoft.WpfBarcode.12.0.14.1\lib\net40\Vintasoft.WpfBarcode.dll</HintPath>
+      <HintPath>packages\Vintasoft.WpfBarcode.12.0.15.1\lib\net40\Vintasoft.WpfBarcode.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
