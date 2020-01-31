@@ -3,7 +3,7 @@
 Demo application shows how to read barcodes from images in WPF. "Automatic recognition" mode is used by default. Demo uses functionality of <a href="https://www.vintasoft.com/vsbarcode-dotnet-index.html">VintaSoft Barcode .NET SDK</a>. Source codes for C# and VB.NET are available.
 
 <h2>Screenshot</h2>
-<img src="vintasoft-simple-barcode-reader-demo.png" alt="VintaSoft WPF Simple Barcode Reader Demo">
+<img src="vintasoft-wpf-simple-barcode-reader-demo.png" alt="VintaSoft WPF Simple Barcode Reader Demo">
 
 
 <h2>Download</h2>
