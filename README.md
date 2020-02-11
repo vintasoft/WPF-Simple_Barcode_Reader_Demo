@@ -11,7 +11,7 @@ VintaSoft Barcode .NET SDK distributive package can be downloaded here: https://
 
 
 <h2>Documentation</h2>
-VintaSoft Barcode .NET SDK on-line User Guide and API Reference is available here: https://www.vintasoft.com/docs/vsbarcode-dotnet/
+VintaSoft Barcode .NET SDK on-line User Guide and API Reference for .NET development is available here: https://www.vintasoft.com/docs/vsbarcode-dotnet/
 
 
 <h2>Support</h2>

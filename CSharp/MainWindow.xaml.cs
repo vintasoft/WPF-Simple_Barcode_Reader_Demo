@@ -12,6 +12,7 @@ using Vintasoft.WpfBarcode;
 using Vintasoft.WpfBarcode.BarcodeInfo;
 using Vintasoft.WpfBarcode.SymbologySubsets;
 using Vintasoft.WpfBarcode.GS1;
+using Vintasoft.WpfBarcode.SymbologySubsets.AAMVA;
 
 namespace WpfSimpleBarcodeReaderDemo
 {
@@ -140,7 +141,7 @@ namespace WpfSimpleBarcodeReaderDemo
 
 
         #region Methods
-       
+
         #region Read barcodes
 
         #region Init reader settings
@@ -355,6 +356,22 @@ namespace WpfSimpleBarcodeReaderDemo
                 _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.XFACompressedPDF417);
             if (barcodeXFACompressedQR.IsChecked == true)
                 _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.XFACompressedQRCode);
+            if (barcodeAAMVA.IsChecked == true)
+                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.AAMVA);
+            if (barcodeIsbt128.IsChecked == true)
+                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.ISBT128);
+            if (barcodeIsbt128DataMatrix.IsChecked == true)
+                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.ISBT128DataMatrix);
+            if (barcodeHibcLic128.IsChecked == true)
+                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.HIBCLIC128);
+            if (barcodeHibcLic39.IsChecked == true)
+                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.HIBCLIC39);
+            if (barcodeHibcLicAztec.IsChecked == true)
+                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.HIBCLICAztecCode);
+            if (barcodeHibcLicDataMatrix.IsChecked == true)
+                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.HIBCLICDataMatrix);
+            if (barcodeHibcLicQR.IsChecked == true)
+                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.HIBCLICQRCode);
         }
 
         #endregion
@@ -389,6 +406,10 @@ namespace WpfSimpleBarcodeReaderDemo
             try
             {
                 _barcodes = _reader.ReadBarcodes(LoadImage(_imageFilename, ref _pageIndex));
+            }
+            catch (System.ComponentModel.LicenseException)
+            {
+                throw;
             }
             catch (Exception ex)
             {
@@ -487,9 +508,36 @@ namespace WpfSimpleBarcodeReaderDemo
             string barcodeTypeValue;
             if (info is BarcodeSubsetInfo)
             {
-                value = string.Format("{0}{1}Base value: {2}",
-                            RemoveSpecialCharacters(value), Environment.NewLine,
-                            RemoveSpecialCharacters(((BarcodeSubsetInfo)info).BaseBarcodeInfo.Value));
+                if (info is AamvaBarcodeInfo)
+                {
+                    AamvaBarcodeValue aamvaValue = ((AamvaBarcodeInfo)info).AamvaValue;
+                    StringBuilder sb = new StringBuilder();
+                    sb.AppendLine();
+                    sb.AppendLine(string.Format("Issuer identification number: {0}", aamvaValue.Header.IssuerIdentificationNumber));
+                    sb.AppendLine(string.Format("File type: {0}", aamvaValue.Header.FileType));
+                    sb.AppendLine(string.Format("AAMVA Version number: {0} ({1})", aamvaValue.Header.VersionLevel, (int)aamvaValue.Header.VersionLevel));
+                    sb.AppendLine(string.Format("Jurisdiction Version number: {0}", aamvaValue.Header.JurisdictionVersionNumber));
+                    sb.AppendLine();
+                    foreach (AamvaSubfile subfile in aamvaValue.Subfiles)
+                    {
+                        sb.AppendLine(string.Format("[{0}] subfile:", subfile.SubfileType));
+                        foreach (AamvaDataElement dataElement in subfile.DataElements)
+                        {
+                            if (dataElement.Identifier.VersionLevel != AamvaVersionLevel.Undefined)
+                                sb.Append(string.Format("  [{0}] {1}:", dataElement.Identifier.ID, dataElement.Identifier.Description));
+                            else
+                                sb.Append(string.Format("  [{0}]:", dataElement.Identifier.ID));
+                            sb.AppendLine(string.Format(" {0}", dataElement.Value));
+                        }
+                    }
+                    value = sb.ToString();
+                }
+                else
+                {
+                    value = string.Format("{0}{1}Base value: {2}",
+                                RemoveSpecialCharacters(value), Environment.NewLine,
+                                RemoveSpecialCharacters(((BarcodeSubsetInfo)info).BaseBarcodeInfo.Value));
+                }
                 barcodeTypeValue = ((BarcodeSubsetInfo)info).BarcodeSubset.ToString();
             }
             else
@@ -615,7 +663,6 @@ namespace WpfSimpleBarcodeReaderDemo
         #endregion
 
 
-
         #region Open/Load image
 
         /// <summary>
@@ -732,7 +779,6 @@ namespace WpfSimpleBarcodeReaderDemo
         }
 
         #endregion
-
 
 
         #region Event handlers
