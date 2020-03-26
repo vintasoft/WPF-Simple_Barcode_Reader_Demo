@@ -88,6 +88,7 @@
                                         <CheckBox Height="16" Name="barcodeEAN" Width="150" DockPanel.Dock="Top">EAN-13 / EAN-8</CheckBox>
                                         <CheckBox Height="16" Name="barcodeJAN" Width="150" DockPanel.Dock="Top" Margin="15,0,0,0">JAN-13 / JAN-8</CheckBox>
                                         <CheckBox Height="16" Name="barcodeIsxn" Width="150" DockPanel.Dock="Top" Margin="15,0,0,0">ISBN / ISSN / ISMN</CheckBox>
+                                        <CheckBox Height="16" Name="barcodeEANVelocity" Width="150" DockPanel.Dock="Top" Margin="15,0,0,0">EAN-Velocity</CheckBox>
                                         <CheckBox Height="16" Name="barcodeUPCA" Width="150" DockPanel.Dock="Top">UPC-A</CheckBox>
                                         <CheckBox Height="16" Name="barcodeUPCE" Width="150" DockPanel.Dock="Top">UPC-E</CheckBox>
                                         <CheckBox Height="16" Name="barcodeEANPlus" Width="150" VerticalAlignment="Top">Plus 5 / Plus 2</CheckBox>

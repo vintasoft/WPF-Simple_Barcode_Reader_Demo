@@ -21,11 +21,11 @@ namespace WpfSimpleBarcodeReaderDemo
     /// </summary>
     public partial class MainWindow : Window
     {
-        
+
         #region Fields
 
         string _message_NoBarcodesFound = "No barcodes found({0} ms).\n\nYou should try to change barcode recognition settings, for example decrease scan interval, add new scan direction, etc if you are sure that image contains a barcode.\n\n";
-        
+
         string _message_NoBarcodesFound_SendToSupport = "\nPlease send image with barcode to support@vintasoft.com if you cannot recognize barcode - we will do the best to help you.";
 
         /// <summary>
@@ -37,7 +37,7 @@ namespace WpfSimpleBarcodeReaderDemo
         /// Image filename.
         /// </summary>
         string _imageFilename;
-        
+
         /// <summary>
         /// Page(frame) index.
         /// </summary>
@@ -77,7 +77,7 @@ namespace WpfSimpleBarcodeReaderDemo
 
 
 
-        #region Constructor
+        #region Constructors
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class.
@@ -85,7 +85,7 @@ namespace WpfSimpleBarcodeReaderDemo
         public MainWindow()
         {
             InitializeComponent();
-            
+
             trackBarExpectedBarcodes.ValueChanged += new RoutedPropertyChangedEventHandler<double>(trackBarExpectedBarcodes_ValueChanged);
             trackBarScanInterval.ValueChanged += new RoutedPropertyChangedEventHandler<double>(trackBarScanInterval_ValueChanged);
             directionAngle45.Checked += new RoutedEventHandler(direction_CheckedChanged);
@@ -101,15 +101,15 @@ namespace WpfSimpleBarcodeReaderDemo
 
             directionAngle45.IsChecked = false;
             Title = _formTitle;
-            
+
             KeyDown += new System.Windows.Input.KeyEventHandler(MainWindow_KeyDown);
             KeyUp += new System.Windows.Input.KeyEventHandler(MainWindow_KeyUp);
-            
+
             _reader = new BarcodeReader();
             _reader.Progress += new EventHandler<BarcodeReaderProgressEventArgs>(reader_Progress);
 
             _openDialog = new OpenFileDialog();
-            _openDialog.Filter = "All supported|*.bmp;*.jpg;*.jpeg;*.jpe;*.jfif;*.tif;*.tiff;*.png;*.gif;*.tga;*.wmf;*.emf;*.pdf";           
+            _openDialog.Filter = "All supported|*.bmp;*.jpg;*.jpeg;*.jpe;*.jfif;*.tif;*.tiff;*.png;*.gif;*.tga;*.wmf;*.emf;*.pdf";
             try
             {
                 // try change OpenDialog.InitialDirectory to  ..\..\..\Images directory
@@ -320,8 +320,6 @@ namespace WpfSimpleBarcodeReaderDemo
                     _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.ISSNPlus5);
                 }
             }
-            if (barcodeEAN.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.EANVelocity);
             if (barcodeJAN.IsChecked == true)
             {
                 _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.JAN13);
@@ -334,6 +332,8 @@ namespace WpfSimpleBarcodeReaderDemo
                     _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.JAN8Plus5);
                 }
             }
+            if (barcodeEANVelocity.IsChecked == true)
+                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.EANVelocity);
             if (barcodeCode32.IsChecked == true)
                 _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.Code32);
             if (barcodeI25ChecksumISO16390.IsChecked == true)
@@ -459,7 +459,7 @@ namespace WpfSimpleBarcodeReaderDemo
                 readerResults.Text = "";
             }
             openImageButton.IsEnabled = true;
-            readBarcodesButton.IsEnabled = true;                
+            readBarcodesButton.IsEnabled = true;
         }
 
         /// <summary>
@@ -580,7 +580,7 @@ namespace WpfSimpleBarcodeReaderDemo
                 return;
 
             DrawingGroup drawingGroup = new DrawingGroup();
-            
+
             DrawingContext drawingContext = drawingGroup.Open();
             drawingContext.DrawImage(_bitmapSource, new Rect(0, 0, _bitmapSource.PixelWidth, _bitmapSource.PixelHeight));
 
@@ -648,7 +648,7 @@ namespace WpfSimpleBarcodeReaderDemo
                 drawingContext.DrawText(new FormattedText(
                     string.Format("[{0}] {1}: {2}", i + 1, barcodeTypeValue, barcodeValue),
                     CultureInfo.CurrentCulture, FlowDirection.LeftToRight,
-                    fontTypeface, 11, Brushes.Blue), 
+                    fontTypeface, 11, Brushes.Blue),
                     new Point(x, y - 15));
             }
 
@@ -694,7 +694,7 @@ namespace WpfSimpleBarcodeReaderDemo
                     MessageBox.Show(ex.Message, "Error", MessageBoxButton.OK, MessageBoxImage.Error);
                     return;
                 }
-                
+
                 if (_bitmapSource == null)
                 {
                     Title = _formTitle;
@@ -753,7 +753,7 @@ namespace WpfSimpleBarcodeReaderDemo
                         return SelectPdfPageWindow.SelectPdfPageImage(filename, ref pageIndex);
                     else
                         return SelectPdfPageWindow.GetPdfPageImage(filename, pageIndex);
-                
+
                 // TIFF file
                 case ".TIF":
                 case ".TIFF":
@@ -765,7 +765,7 @@ namespace WpfSimpleBarcodeReaderDemo
                         return tiffDecoder.Frames[pageIndex];
                     }
                     return tiffDecoder.Frames[0];
-                
+
                 // image
                 default:
                     _imageFileStream = new FileStream(filename, FileMode.Open, FileAccess.Read);
@@ -810,7 +810,7 @@ namespace WpfSimpleBarcodeReaderDemo
                     break;
             }
         }
-      
+
 
         /// <summary>
         /// Update visualization of scan direction 45/135.
