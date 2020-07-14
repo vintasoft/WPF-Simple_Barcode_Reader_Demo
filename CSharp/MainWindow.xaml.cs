@@ -224,6 +224,8 @@ namespace WpfSimpleBarcodeReaderDemo
                 scanBarcodeTypes |= BarcodeType.MicroPDF417;
             if (barcodeDataMatrix.IsChecked == true)
                 scanBarcodeTypes |= BarcodeType.DataMatrix;
+            if (barcodeDotCode.IsChecked == true)
+                scanBarcodeTypes |= BarcodeType.DotCode;
             if (barcodeQR.IsChecked == true)
                 scanBarcodeTypes |= BarcodeType.QR;
             if (barcodeHanXinCode.IsChecked == true)
@@ -261,6 +263,8 @@ namespace WpfSimpleBarcodeReaderDemo
             _reader.Settings.ScanBarcodeTypes = scanBarcodeTypes;
 
             _reader.Settings.ScanBarcodeSubsets.Clear();
+            if (barcodeGS1DotCode.IsChecked == true)
+                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.GS1DotCode);
             if (barcodeMailmarkCmdmType7.IsChecked == true)
                 _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.MailmarkCmdmType7);
             if (barcodeMailmarkCmdmType9.IsChecked == true)

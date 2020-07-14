@@ -155,6 +155,8 @@
                                         <CheckBox Height="16" Name="barcodeHibcLicDataMatrix" Width="160" Margin="20,0,0,0" DockPanel.Dock="Top" VerticalAlignment="Top">HIBC LIC Data Matrix</CheckBox>
                                     </DockPanel>
                                 <DockPanel Width="140">
+                                        <CheckBox Height="16" Name="barcodeDotCode" Width="160" DockPanel.Dock="Top">DotCode</CheckBox>
+                                        <CheckBox Height="16" Name="barcodeGS1DotCode" Width="160" Margin="20,0,0,0" DockPanel.Dock="Top">GS1 DotCode</CheckBox>
                                         <CheckBox Height="16" Name="barcodePDF417" Width="160" DockPanel.Dock="Top">PDF417</CheckBox>
                                         <CheckBox Height="16" Name="barcodeAAMVA" Width="160" Margin="20,0,0,0" DockPanel.Dock="Top">AAMVA</CheckBox>
                                         <CheckBox Height="16" Name="barcodeXFACompressedPDF417" Width="160" Margin="20,0,0,0" DockPanel.Dock="Top" VerticalAlignment="Top">XFA PDF417</CheckBox>
