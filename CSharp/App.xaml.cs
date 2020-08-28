@@ -1,6 +1,5 @@
 ﻿using System;
 using System.ComponentModel;
-using System.IO;
 using System.Windows;
 
 namespace WpfSimpleBarcodeReaderDemo
@@ -16,8 +15,6 @@ namespace WpfSimpleBarcodeReaderDemo
         public App()
             : base()
         {
-            VintasoftBarcode.VintasoftWpfBarcodeLicense.Register();
-
             System.AppDomain.CurrentDomain.UnhandledException += CurrentDomain_UnhandledException;
         }
 
@@ -34,21 +31,11 @@ namespace WpfSimpleBarcodeReaderDemo
                 // show information about licensing exception
                 MessageBox.Show(string.Format("{0}: {1}", licenseException.GetType().Name, licenseException.Message), "Error", MessageBoxButton.OK, MessageBoxImage.Error);
 
-                string[] dirs = new string[] { ".", "..", @"..\..\", @"..\..\..\", @"..\..\..\..\..\", @"..\..\..\..\..\..\..\" };
-                // for each directory
-                for (int i = 0; i < dirs.Length; i++)
-                {
-                    string filename = Path.Combine(dirs[i], "VSBarcodeNetEvaluationLicenseManager.exe");
-                    // if VintaSoft Evaluation License Manager exists in directory
-                    if (File.Exists(filename))
-                    {
-                        // start Vintasoft Evaluation License Manager for getting the evaluation license
-                        System.Diagnostics.Process process = new System.Diagnostics.Process();
-                        process.StartInfo.FileName = filename;
-                        process.Start();
-                        return;
-                    }
-                }
+                // open article with information about usage of evaluation license
+                System.Diagnostics.Process process = new System.Diagnostics.Process();
+                process.StartInfo.FileName = "https://www.vintasoft.com/docs/vstwain-dotnet/Licensing-Twain-Evaluation.html";
+                process.StartInfo.UseShellExecute = true;
+                process.Start();
             }
         }
 

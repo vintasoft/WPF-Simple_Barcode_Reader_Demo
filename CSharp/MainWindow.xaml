@@ -165,6 +165,7 @@
                                         <CheckBox Height="16" Name="barcodeGS1QR" Width="160" Margin="20,0,0,0" DockPanel.Dock="Top" VerticalAlignment="Top">GS1 QR</CheckBox>
                                         <CheckBox Height="16" Name="barcodeXFACompressedQR" Width="160" Margin="20,0,0,0" DockPanel.Dock="Top" VerticalAlignment="Top">XFA QR</CheckBox>
                                         <CheckBox Height="16" Name="barcodeHibcLicQR" Width="160" Margin="20,0,0,0" DockPanel.Dock="Top" VerticalAlignment="Top">HIBC LIC QR Code</CheckBox>
+                                        <CheckBox Height="16" Name="barcodeSwissQrCode" Width="160" Margin="20,0,0,0" DockPanel.Dock="Top" VerticalAlignment="Top">Swiss QR Code</CheckBox>
                                         <CheckBox Height="16" Name="barcodeMicroQR" Width="160" DockPanel.Dock="Top" VerticalAlignment="Top">Micro QR</CheckBox>
                                         <CheckBox Height="16" Name="barcodeMaxiCode" Width="160" DockPanel.Dock="Top" VerticalAlignment="Top">MaxiCode</CheckBox>
                                         <CheckBox Height="16" Name="barcodeHanXinCode" Width="160" DockPanel.Dock="Top" VerticalAlignment="Top">Han Xin Code</CheckBox>

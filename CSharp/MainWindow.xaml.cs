@@ -376,6 +376,8 @@ namespace WpfSimpleBarcodeReaderDemo
                 _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.HIBCLICDataMatrix);
             if (barcodeHibcLicQR.IsChecked == true)
                 _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.HIBCLICQRCode);
+            if (barcodeSwissQrCode.IsChecked == true)
+                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.SwissQRCode);
         }
 
         #endregion
