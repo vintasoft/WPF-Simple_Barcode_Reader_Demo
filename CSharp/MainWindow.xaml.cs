@@ -107,6 +107,8 @@ namespace WpfSimpleBarcodeReaderDemo
 
             _reader = new BarcodeReader();
             _reader.Progress += new EventHandler<BarcodeReaderProgressEventArgs>(reader_Progress);
+            _reader.Settings.ScanBarcodeTypes = BarcodeType.Code128 | BarcodeType.Code39 | BarcodeType.DataMatrix;
+            readerBarcodeTypes.SetBarcodeReaderSettings(_reader.Settings);
 
             _openDialog = new OpenFileDialog();
             _openDialog.Filter = "All supported|*.bmp;*.jpg;*.jpeg;*.jpe;*.jfif;*.tif;*.tiff;*.png;*.gif;*.tga;*.wmf;*.emf;*.pdf";
@@ -134,6 +136,7 @@ namespace WpfSimpleBarcodeReaderDemo
             catch
             {
             }
+
         }
 
         #endregion
@@ -172,212 +175,7 @@ namespace WpfSimpleBarcodeReaderDemo
                 scanDirection |= ScanDirection.BottomToTop;
             if (directionAngle45.IsChecked.Value)
                 scanDirection |= ScanDirection.Angle45and135;
-            _reader.Settings.ScanDirection = scanDirection;
-
-            // set ScanBarcodes
-            BarcodeType scanBarcodeTypes = BarcodeType.None;
-            if (barcodeCode11.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.Code11;
-            if (barcodeCode39.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.Code39;
-            if (barcodeCode93.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.Code93;
-            if (barcodeCode128.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.Code128;
-            if (barcodeCodabar.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.Codabar;
-            if (barcodeEAN.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.EAN8 | BarcodeType.EAN13;
-            if (barcodeEANPlus.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.Plus2 | BarcodeType.Plus5;
-            if (barcodeI25.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.Interleaved2of5;
-            if (barcodeS25.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.Standard2of5;
-            if (barcodeUPCA.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.UPCA;
-            if (barcodeUPCE.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.UPCE;
-            if (barcodeTelepen.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.Telepen;
-            if (barcodePlanet.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.Planet;
-            if (barcodeIntelligentMail.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.IntelligentMail;
-            if (barcodePostnet.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.Postnet;
-            if (barcodeRoyalMail.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.RoyalMail;
-            if (barcodeMailmark4StateC.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.Mailmark4StateC;
-            if (barcodeMailmark4StateL.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.Mailmark4StateL;
-            if (barcodeDutchKIX.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.DutchKIX;
-            if (barcodePatchCode.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.PatchCode;
-            if (barcodePharmacode.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.Pharmacode;
-            if (barcodePDF417.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.PDF417 | BarcodeType.PDF417Compact;
-            if (barcodeMicroPDF417.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.MicroPDF417;
-            if (barcodeDataMatrix.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.DataMatrix;
-            if (barcodeDotCode.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.DotCode;
-            if (barcodeQR.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.QR;
-            if (barcodeHanXinCode.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.HanXinCode;
-            if (barcodeMicroQR.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.MicroQR;
-            if (barcodeMaxiCode.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.MaxiCode;
-            if (barcodeRSS14.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.RSS14;
-            if (barcodeRSSLimited.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.RSSLimited;
-            if (barcodeRSSExpanded.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.RSSExpanded;
-            if (barcodeRSSExpandedStacked.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.RSSExpandedStacked;
-            if (barcodeRSS14Stacked.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.RSS14Stacked;
-            if (barcodeAztec.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.Aztec;
-            if (barcodeRSS14Stacked.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.RSS14Stacked;
-            if (barcodeAustralian.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.AustralianPost;
-            if (barcodeMSI.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.MSI;
-            if (barcodeCode16K.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.Code16K;
-            if (barcodeMatrix2of5.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.Matrix2of5;
-            if (barcodeIATA2of5.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.IATA2of5;
-            if (barcodeMaxiCode.IsChecked == true)
-                scanBarcodeTypes |= BarcodeType.MaxiCode;
-            _reader.Settings.ScanBarcodeTypes = scanBarcodeTypes;
-
-            _reader.Settings.ScanBarcodeSubsets.Clear();
-            if (barcodeGS1DotCode.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.GS1DotCode);
-            if (barcodeMailmarkCmdmType7.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.MailmarkCmdmType7);
-            if (barcodeMailmarkCmdmType9.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.MailmarkCmdmType9);
-            if (barcodeMailmarkCmdmType29.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.MailmarkCmdmType29);
-            if (barcodeGS1_128.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.GS1_128);
-            if (barcodeGS1Aztec.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.GS1Aztec);
-            if (barcodeGs1DataMatrix.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.GS1DataMatrix);
-            if (barcodeGS1QR.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.GS1QR);
-            if (barcodeGS1DataBar.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.GS1DataBar);
-            if (barcodeGS1DataBarExpanded.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.GS1DataBarExpanded);
-            if (barcodeGS1DataBarExpandedStacked.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.GS1DataBarExpandedStacked);
-            if (barcodeGS1DataBarLimited.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.GS1DataBarLimited);
-            if (barcodeGS1DataBarStacked.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.GS1DataBarStacked);
-            if (barcodePPN.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.PPN);
-            if (barcodeSSCC18.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.SSCC18);
-            if (barcodeVIN.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.VIN);
-            if (barcodePZN.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.PZN);
-            if (barcodeNumlyNumber.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.NumlyNumber);
-            if (barcodeCode39Extended.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.Code39Extended);
-            if (barcodeVicsBol.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.VicsBol);
-            if (barcodeVicsScacPro.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.VicsScacPro);
-            if (barcodeOPC.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.OPC);
-            if (barcodeITF14.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.ITF14);
-            if (barcodeIsxn.IsChecked == true)
-            {
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.ISBN);
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.ISMN);
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.ISSN);
-                if (barcodeEANPlus.IsChecked == true)
-                {
-                    _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.ISBNPlus2);
-                    _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.ISBNPlus5);
-                    _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.ISMNPlus2);
-                    _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.ISMNPlus5);
-                    _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.ISSNPlus2);
-                    _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.ISSNPlus5);
-                }
-            }
-            if (barcodeJAN.IsChecked == true)
-            {
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.JAN13);
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.JAN8);
-                if (barcodeEANPlus.IsChecked == true)
-                {
-                    _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.JAN13Plus2);
-                    _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.JAN13Plus5);
-                    _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.JAN8Plus2);
-                    _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.JAN8Plus5);
-                }
-            }
-            if (barcodeEANVelocity.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.EANVelocity);
-            if (barcodeCode32.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.Code32);
-            if (barcodeI25ChecksumISO16390.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.Interleaved2of5ChecksumISO16390);
-            if (barcodeDeutschePostIdentcode.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.DeutschePostIdentcode);
-            if (barcodeDeutschePostLeitcode.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.DeutschePostLeitcode);
-            if (barcodeSwissPostParcel.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.SwissPostParcel);
-            if (barcodeFedExGround96.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.FedExGround96);
-            if (barcodeDhlAwb.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.DhlAwb);
-            if (barcodeXFACompressedAztec.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.XFACompressedAztec);
-            if (barcodeXFACompressedDataMatrix.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.XFACompressedDataMatrix);
-            if (barcodeXFACompressedPDF417.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.XFACompressedPDF417);
-            if (barcodeXFACompressedQR.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.XFACompressedQRCode);
-            if (barcodeAAMVA.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.AAMVA);
-            if (barcodeIsbt128.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.ISBT128);
-            if (barcodeIsbt128DataMatrix.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.ISBT128DataMatrix);
-            if (barcodeHibcLic128.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.HIBCLIC128);
-            if (barcodeHibcLic39.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.HIBCLIC39);
-            if (barcodeHibcLicAztec.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.HIBCLICAztecCode);
-            if (barcodeHibcLicDataMatrix.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.HIBCLICDataMatrix);
-            if (barcodeHibcLicQR.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.HIBCLICQRCode);
-            if (barcodeSwissQrCode.IsChecked == true)
-                _reader.Settings.ScanBarcodeSubsets.Add(BarcodeSymbologySubsets.SwissQRCode);
+            _reader.Settings.ScanDirection = scanDirection;          
         }
 
         #endregion

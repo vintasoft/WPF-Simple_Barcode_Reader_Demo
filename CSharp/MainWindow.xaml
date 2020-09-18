@@ -1,6 +1,7 @@
 ﻿<Window x:Class="WpfSimpleBarcodeReaderDemo.MainWindow"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="clr-namespace:WpfSimpleBarcodeReaderDemo"
     Title="WPF Barcode Reader Demo" Height="850" Width="850" ShowInTaskbar="True" WindowStartupLocation="CenterScreen" Icon="/WpfSimpleBarcodeReaderDemo;component/App.ico">
     <DockPanel HorizontalAlignment="Stretch" MinWidth="700" MinHeight="400">
         <DockPanel Height="400" Name="dockPanel2" DockPanel.Dock="Bottom">
@@ -61,119 +62,7 @@
             <DockPanel Name="dockPanel6" DockPanel.Dock="Left" Margin="1">
                 <GroupBox Header="Barcode types" Name="groupBox1">
                     <DockPanel Name="dockPanel7">
-                        <TabControl>
-                            <TabItem Header="Linear / Stacked">
-                                <DockPanel>
-                                    <DockPanel Name="dockPanel8" Width="140">
-                                        <CheckBox Height="16" Name="barcodeCode39" Width="130" DockPanel.Dock="Top" IsChecked="True">Code 39</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeCode39Extended" Margin="20,0,0,0" Width="130" DockPanel.Dock="Top">Code 39 Extended</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeCode32" Margin="20,0,0,0" Width="130" DockPanel.Dock="Top">Code 32</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeVIN" Margin="20,0,0,0" Width="130" DockPanel.Dock="Top">VIN</CheckBox>
-                                        <CheckBox Height="16" Name="barcodePZN" Margin="20,0,0,0" Width="130" DockPanel.Dock="Top">PZN</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeNumlyNumber" Margin="20,0,0,0" Width="130" DockPanel.Dock="Top">Numly Number</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeHibcLic39" Margin="20,0,0,0" Width="130" VerticalAlignment="Top" DockPanel.Dock="Top">HIBC LIC 39</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeCode128" Width="130" DockPanel.Dock="Top" IsChecked="True">Code 128</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeGS1_128" Margin="20,0,0,0" Width="130" DockPanel.Dock="Top">GS1-128</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeSSCC18" Margin="20,0,0,0" Width="130" DockPanel.Dock="Top">SSCC-128</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeVicsBol" Margin="20,0,0,0" Width="130" DockPanel.Dock="Top">VICS BOL</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeVicsScacPro" Margin="20,0,0,0" Width="130" DockPanel.Dock="Top">VICS SCAC PRO</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeIsbt128" Margin="20,0,0,0" Width="130" VerticalAlignment="Top" DockPanel.Dock="Top">ISBT 128</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeHibcLic128" Margin="20,0,0,0" Width="130" VerticalAlignment="Top" DockPanel.Dock="Top">HIBC LIC 128</CheckBox>
-                                    </DockPanel>
-                                    <DockPanel Name="dockPanel9" Width="150">
-                                        <CheckBox Height="16" Name="barcodeCode16K" Width="150" DockPanel.Dock="Top">Code 16K</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeCode11" Width="150" DockPanel.Dock="Top">Code 11</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeCodabar" Width="150" DockPanel.Dock="Top">Codabar</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeCode93" Width="150" DockPanel.Dock="Top">Code 93</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeEAN" Width="150" DockPanel.Dock="Top">EAN-13 / EAN-8</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeJAN" Width="150" DockPanel.Dock="Top" Margin="15,0,0,0">JAN-13 / JAN-8</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeIsxn" Width="150" DockPanel.Dock="Top" Margin="15,0,0,0">ISBN / ISSN / ISMN</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeEANVelocity" Width="150" DockPanel.Dock="Top" Margin="15,0,0,0">EAN-Velocity</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeUPCA" Width="150" DockPanel.Dock="Top">UPC-A</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeUPCE" Width="150" DockPanel.Dock="Top">UPC-E</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeEANPlus" Width="150" VerticalAlignment="Top">Plus 5 / Plus 2</CheckBox>
-                                    </DockPanel>
-                                    <DockPanel Width="130">
-                                        <CheckBox Height="16" Name="barcodeMSI" Width="120" DockPanel.Dock="Top">MSI</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeTelepen" Width="120" DockPanel.Dock="Top">Telepen</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeI25" Width="120" DockPanel.Dock="Top">Interleaved 2 of 5</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeOPC" Margin="20,0,0,0" Width="120" DockPanel.Dock="Top">OPC</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeITF14" Margin="20,0,0,0" Width="120" DockPanel.Dock="Top">ITF-14</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeI25ChecksumISO16390" Margin="20,0,0,0" Width="120" DockPanel.Dock="Top">CH ISO16390</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeS25" Width="120" DockPanel.Dock="Top">Standard 2 of 5</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeMatrix2of5" Width="120" DockPanel.Dock="Top">Matrix 2 of 5</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeIATA2of5" Width="120" DockPanel.Dock="Top">IATA 2 of 5</CheckBox>
-                                        <CheckBox Height="16" Name="barcodePatchCode" Width="120" DockPanel.Dock="Top">Patch Code</CheckBox>
-                                        <CheckBox Height="16" Name="barcodePharmacode" Width="120" VerticalAlignment="Top">Pharmacode</CheckBox>
-                                    </DockPanel>
-                                    <DockPanel Name="dockPanel10" Width="210">
-                                        <CheckBox Height="16" Name="barcodeRSS14" Width="200" DockPanel.Dock="Top">RSS-14</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeGS1DataBar" Width="185" Margin="15,0,0,0" DockPanel.Dock="Top">GS1 DataBar</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeRSS14Stacked" Width="200" DockPanel.Dock="Top">RSS-14 Stacked</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeGS1DataBarStacked" Width="185" Margin="15,0,0,0" DockPanel.Dock="Top">GS1 DataBar Stacked</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeRSSLimited" Width="200" DockPanel.Dock="Top">RSS Limited</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeGS1DataBarLimited" Width="185" Margin="15,0,0,0" DockPanel.Dock="Top">GS1 DataBar Limited</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeRSSExpanded" Width="200" DockPanel.Dock="Top">RSS Expanded</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeGS1DataBarExpanded" Width="185" Margin="15,0,0,0" DockPanel.Dock="Top">GS1 DataBar Expanded</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeRSSExpandedStacked" Width="200" DockPanel.Dock="Top">RSS Expanded Stacked</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeGS1DataBarExpandedStacked" Width="185"  Margin="15,0,0,0" VerticalAlignment="Top">GS1 DataBar Expanded Stacked</CheckBox>
-                                    </DockPanel>
-                                    <DockPanel Name="dockPanel11" Width="120">
-                                        <CheckBox Height="16" Name="barcodeAustralian" Width="110" DockPanel.Dock="Top">Australia Post</CheckBox>
-                                        <CheckBox DockPanel.Dock="Top" Height="16" Name="barcodeIntelligentMail" Width="110">Intelligent Mail</CheckBox>
-                                        <CheckBox DockPanel.Dock="Top" Height="16" Name="barcodePlanet" Width="110">Planet</CheckBox>
-                                        <CheckBox Height="16" Name="barcodePostnet" Width="110" DockPanel.Dock="Top">Postnet</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeRoyalMail" Width="110" DockPanel.Dock="Top" VerticalAlignment="Top">Royal Mail</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeMailmark4StateC" Width="110" DockPanel.Dock="Top" VerticalAlignment="Top">Mailmark C</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeMailmark4StateL" Width="110" DockPanel.Dock="Top" VerticalAlignment="Top">Mailmark L</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeDutchKIX" Width="110" DockPanel.Dock="Top" VerticalAlignment="Top">Dutch KIX</CheckBox>
-                                        <Label Height="16"  Margin="0,0,0,0" Padding="4,0,0,0" DockPanel.Dock="Top" VerticalAlignment="Top">Deutsche Post</Label>
-                                        <CheckBox Height="16" Margin="20,0,0,0" Name="barcodeDeutschePostLeitcode" Width="110" DockPanel.Dock="Top" VerticalAlignment="Top">Leitcode</CheckBox>
-                                        <CheckBox Height="16" Margin="20,0,0,0" Name="barcodeDeutschePostIdentcode" Width="110" DockPanel.Dock="Top" VerticalAlignment="Top">Identcode</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeSwissPostParcel" Width="110" DockPanel.Dock="Top" VerticalAlignment="Top">Swiss PostParcel</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeFedExGround96" Width="110" DockPanel.Dock="Top" VerticalAlignment="Top">FedEx Ground 96</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeDhlAwb" Width="110" DockPanel.Dock="Top" VerticalAlignment="Top">DHL AVB</CheckBox>
-                                    </DockPanel>
-                                    <DockPanel/>
-                                </DockPanel>
-                            </TabItem>
-                            <TabItem Header="2D">
-                    <DockPanel>
-                    <DockPanel Name="dockPanel12" Width="200">
-                                    <CheckBox Height="16" Name="barcodeAztec" Width="160" DockPanel.Dock="Top">Aztec</CheckBox>
-                                    <CheckBox Height="16" Name="barcodeGS1Aztec" Width="160" Margin="20,0,0,0" DockPanel.Dock="Top">GS1 Aztec</CheckBox>
-                                    <CheckBox Height="16" Name="barcodeXFACompressedAztec" Width="160" Margin="20,0,0,0" DockPanel.Dock="Top" VerticalAlignment="Top">XFA Aztec</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeHibcLicAztec" Width="160" Margin="20,0,0,0" DockPanel.Dock="Top" VerticalAlignment="Top">HIBC LIC Aztec Code</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeDataMatrix" Width="160" DockPanel.Dock="Top" Opacity="1" SnapsToDevicePixels="False">Data Matrix</CheckBox>
-                                    <CheckBox Height="16" Name="barcodeGs1DataMatrix" Width="160" Margin="20,0,0,0" DockPanel.Dock="Top" Opacity="1" SnapsToDevicePixels="False">GS1 Data Matrix</CheckBox>
-                                    <CheckBox Height="16" Name="barcodePPN" Width="160" Margin="20,0,0,0" DockPanel.Dock="Top" Opacity="1" SnapsToDevicePixels="False">PPN</CheckBox>
-                                    <CheckBox Height="16" Name="barcodeMailmarkCmdmType7" Width="160" Margin="20,0,0,0" DockPanel.Dock="Top" Opacity="1" SnapsToDevicePixels="False">Mailmark CMDM Type7</CheckBox>
-                                    <CheckBox Height="16" Name="barcodeMailmarkCmdmType9" Width="160" Margin="20,0,0,0" DockPanel.Dock="Top" Opacity="1" SnapsToDevicePixels="False">Mailmark CMDM Type9</CheckBox>
-                                    <CheckBox Height="16" Name="barcodeMailmarkCmdmType29" Width="160" Margin="20,0,0,0" DockPanel.Dock="Top" Opacity="1" SnapsToDevicePixels="False">Mailmark CMDM Type29</CheckBox>
-                                    <CheckBox Height="16" Name="barcodeXFACompressedDataMatrix" Width="160" Margin="20,0,0,0" DockPanel.Dock="Top" VerticalAlignment="Top">XFA DataMatrix</CheckBox>
-                                    <CheckBox Height="16" Name="barcodeIsbt128DataMatrix" Width="160" Margin="20,0,0,0" DockPanel.Dock="Top" >ISBT 128 DataMatrix</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeHibcLicDataMatrix" Width="160" Margin="20,0,0,0" DockPanel.Dock="Top" VerticalAlignment="Top">HIBC LIC Data Matrix</CheckBox>
-                                    </DockPanel>
-                                <DockPanel Width="140">
-                                        <CheckBox Height="16" Name="barcodeDotCode" Width="160" DockPanel.Dock="Top">DotCode</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeGS1DotCode" Width="160" Margin="20,0,0,0" DockPanel.Dock="Top">GS1 DotCode</CheckBox>
-                                        <CheckBox Height="16" Name="barcodePDF417" Width="160" DockPanel.Dock="Top">PDF417</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeAAMVA" Width="160" Margin="20,0,0,0" DockPanel.Dock="Top">AAMVA</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeXFACompressedPDF417" Width="160" Margin="20,0,0,0" DockPanel.Dock="Top" VerticalAlignment="Top">XFA PDF417</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeMicroPDF417" Width="160" DockPanel.Dock="Top">Micro PDF417</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeQR" Width="160" DockPanel.Dock="Top" VerticalAlignment="Top">QR</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeGS1QR" Width="160" Margin="20,0,0,0" DockPanel.Dock="Top" VerticalAlignment="Top">GS1 QR</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeXFACompressedQR" Width="160" Margin="20,0,0,0" DockPanel.Dock="Top" VerticalAlignment="Top">XFA QR</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeHibcLicQR" Width="160" Margin="20,0,0,0" DockPanel.Dock="Top" VerticalAlignment="Top">HIBC LIC QR Code</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeSwissQrCode" Width="160" Margin="20,0,0,0" DockPanel.Dock="Top" VerticalAlignment="Top">Swiss QR Code</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeMicroQR" Width="160" DockPanel.Dock="Top" VerticalAlignment="Top">Micro QR</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeMaxiCode" Width="160" DockPanel.Dock="Top" VerticalAlignment="Top">MaxiCode</CheckBox>
-                                        <CheckBox Height="16" Name="barcodeHanXinCode" Width="160" DockPanel.Dock="Top" VerticalAlignment="Top">Han Xin Code</CheckBox>
-                                    </DockPanel>
-                                    <DockPanel/>
-                                </DockPanel>
-                            </TabItem>
-                        </TabControl>
+                        <local:ReaderSettingsBarcodeTypesControl x:Name="readerBarcodeTypes"/>
                     </DockPanel>
                 </GroupBox>
             </DockPanel>

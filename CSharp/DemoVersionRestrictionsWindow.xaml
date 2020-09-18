@@ -1,0 +1,51 @@
+﻿<Window x:Class="WpfSimpleBarcodeReaderDemo.DemoVersionRestrictionsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfSimpleBarcodeReaderDemo"
+        mc:Ignorable="d"
+        Title="VintaSoft Barcode .NET SDK: Restrictions of DEMO version" Height="300" Width="500" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <Label Grid.Row="0">
+            <AccessText TextWrapping="Wrap">
+                You selected barcode symbologies for recognition, which cannot be recognized due of limitations of evaluation version of VintaSoft Barcode .NET SDK.
+            </AccessText>
+        </Label>
+        <StackPanel Grid.Row="1" Orientation="Horizontal" >
+            <Label Padding="3" VerticalAlignment="Center">Please read information about limitations of evaluation version here:</Label>
+            <TextBlock x:Name="documentationLabel" VerticalAlignment="Center" Padding="1" Foreground="Blue" Cursor="Hand" MouseDown="documentationLabel_MouseDown">
+                Documentation
+            </TextBlock>
+        </StackPanel>
+        <Button Name="buttonOk" Width="82" Margin="0,5,0,5" HorizontalAlignment="Center" Click="buttonOk_Click" Grid.Row="6">OK</Button>
+        <Label Grid.Row="2" VerticalAlignment="Center">If you want to test SDK functionality without limitations, you can use:</Label>
+        <StackPanel Grid.Row="3" Orientation="Horizontal" >
+            <Label Padding="3" VerticalAlignment="Center">1. Free barcode scanner for Android:</Label>
+            <TextBlock x:Name="androidBarcodeScannerLinkLabel" VerticalAlignment="Center" Padding="1" Foreground="Blue" Cursor="Hand" MouseDown="androidBarcodeScannerLinkLabel_MouseDown">
+                VintaSoft Barcode Scanner
+            </TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Orientation="Horizontal" >
+            <Label Padding="3" VerticalAlignment="Center">2. Free barcode grnerator for Android:</Label>
+            <TextBlock x:Name="androidBarcodeGeneratorLinkLabel" VerticalAlignment="Center" Padding="1" Foreground="Blue" Cursor="Hand" MouseDown="androidBarcodeGeneratorLinkLabel_MouseDown">
+                VintaSoft Barcode Generator
+            </TextBlock>
+        </StackPanel>
+        <StackPanel Grid.Row="5" Orientation="Horizontal" >
+            <Label Padding="3" VerticalAlignment="Center">3. Free web barcode scanner/generator:</Label>
+            <TextBlock x:Name="aspNetBarcodeScannerGeneratorLinkLabel" VerticalAlignment="Center" Padding="1" Foreground="Blue" Cursor="Hand" MouseDown="aspNetBarcodeScannerGeneratorLinkLabel_MouseDown">
+                VintaSoft Web Barcode Scanner/Generator
+            </TextBlock>
+        </StackPanel>
+    </Grid>
+</Window>

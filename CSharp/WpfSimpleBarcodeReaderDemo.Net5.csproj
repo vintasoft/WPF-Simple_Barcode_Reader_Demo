@@ -10,7 +10,7 @@
 
     <EnableDefaultItems>false</EnableDefaultItems>
 
-    <Version>12.2.3.1</Version>
+    <Version>12.3.0.1</Version>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>  
@@ -38,16 +38,22 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Vintasoft.WpfBarcode" Version="12.2.3.1" />
+    <PackageReference Include="Vintasoft.WpfBarcode" Version="12.3.0.1" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="DemoVersionRestrictionsWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="ReaderSettingsBarcodeTypesControl.xaml">
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SelectImageFrameWindow.xaml">
       <SubType>Designer</SubType>
@@ -61,6 +67,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="DemoVersionRestrictionsWindow.xaml.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -68,6 +75,7 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ReaderSettingsBarcodeTypesControl.xaml.cs" />
     <Compile Include="SelectImageFrameWindow.xaml.cs">
       <DependentUpon>SelectImageFrameWindow.xaml</DependentUpon>
     </Compile>
