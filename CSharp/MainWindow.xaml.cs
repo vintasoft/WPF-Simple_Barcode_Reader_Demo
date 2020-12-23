@@ -114,29 +114,13 @@ namespace WpfSimpleBarcodeReaderDemo
             _openDialog.Filter = "All supported|*.bmp;*.jpg;*.jpeg;*.jpe;*.jfif;*.tif;*.tiff;*.png;*.gif;*.tga;*.wmf;*.emf;*.pdf";
             try
             {
-                // try change OpenDialog.InitialDirectory to  ..\..\..\Images directory
-                string workDir = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().ManifestModule.FullyQualifiedName);
-                workDir = Path.GetDirectoryName(workDir);
-                workDir = Path.GetDirectoryName(workDir);
-                workDir = Path.GetDirectoryName(workDir);
-                workDir = Path.Combine(workDir, "Images");
-                if (Directory.Exists(workDir))
-                {
-                    _openDialog.InitialDirectory = workDir;
-                }
-                else
-                {
-                    workDir = Path.GetDirectoryName(workDir);
-                    workDir = Path.GetDirectoryName(workDir);
-                    workDir = Path.Combine(workDir, "Images");
-                    if (Directory.Exists(workDir))
-                        _openDialog.InitialDirectory = workDir;
-                }
+                string exampleImagesDir = GetExampleImagesDirectory();
+                if (exampleImagesDir != null)
+                    _openDialog.InitialDirectory = exampleImagesDir;
             }
             catch
             {
             }
-
         }
 
         #endregion
@@ -175,7 +159,7 @@ namespace WpfSimpleBarcodeReaderDemo
                 scanDirection |= ScanDirection.BottomToTop;
             if (directionAngle45.IsChecked.Value)
                 scanDirection |= ScanDirection.Angle45and135;
-            _reader.Settings.ScanDirection = scanDirection;          
+            _reader.Settings.ScanDirection = scanDirection;
         }
 
         #endregion
@@ -580,6 +564,32 @@ namespace WpfSimpleBarcodeReaderDemo
                     image.EndInit();
                     return image;
             }
+        }
+
+        /// <summary>
+        /// Returns path to "Images" directory with example barcode images.
+        /// </summary>
+        /// <returns>Path to "Images" directory with example barcode images.</returns>
+        private string GetExampleImagesDirectory()
+        {
+            string binDir = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().ManifestModule.FullyQualifiedName);
+            string exampleImagesDir = Path.Combine(binDir, Path.Combine("..", Path.Combine("..", Path.Combine("..", "Images"))));
+            if (Directory.Exists(exampleImagesDir))
+                return Path.GetFullPath(exampleImagesDir);
+
+            exampleImagesDir = Path.Combine(binDir, Path.Combine("..", Path.Combine("..", Path.Combine("..", Path.Combine("..", "Images")))));
+            if (Directory.Exists(exampleImagesDir))
+                return Path.GetFullPath(exampleImagesDir);
+
+            exampleImagesDir = Path.Combine(binDir, Path.Combine("..", Path.Combine("..", Path.Combine("..", Path.Combine("..", Path.Combine("..", "Images"))))));
+            if (Directory.Exists(exampleImagesDir))
+                return Path.GetFullPath(exampleImagesDir);
+
+            exampleImagesDir = Path.Combine(binDir, Path.Combine("..", Path.Combine("..", Path.Combine("..", Path.Combine("..", Path.Combine("..", Path.Combine("..", "Images")))))));
+            if (Directory.Exists(exampleImagesDir))
+                return Path.GetFullPath(exampleImagesDir);
+
+            return null;
         }
 
         #endregion

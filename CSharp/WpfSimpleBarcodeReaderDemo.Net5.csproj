@@ -10,7 +10,7 @@
 
     <EnableDefaultItems>false</EnableDefaultItems>
 
-    <Version>12.4.1.1</Version>
+    <Version>12.4.2.1</Version>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>  
@@ -38,7 +38,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Vintasoft.WpfBarcode" Version="12.4.1.1" />
+    <PackageReference Include="Vintasoft.WpfBarcode" Version="12.4.2.1" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
