@@ -84,7 +84,7 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Vintasoft.WpfBarcode" Version="12.4.7.1" />
+    <PackageReference Include="Vintasoft.WpfBarcode" Version="12.4.8.1" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
