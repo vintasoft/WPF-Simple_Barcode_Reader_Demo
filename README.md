@@ -15,4 +15,4 @@ VintaSoft Barcode .NET SDK on-line User Guide and API Reference for .NET develop
 
 
 <h2>Support</h2>
-Please visit our <a href="https://www.vintasoft.com/support/">online support center</a> if you have any question or problem.
+Please visit our <a href="https://myaccount.vintasoft.com/">online support center</a> if you have any question or problem.
