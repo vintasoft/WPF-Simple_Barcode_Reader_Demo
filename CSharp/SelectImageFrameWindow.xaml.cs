@@ -3,18 +3,26 @@
 namespace WpfSimpleBarcodeReaderDemo
 {
     /// <summary>
-    /// SelectImageFrameWindow logic.
+    /// A window that allows to select frame from the opened multipage image.
     /// </summary>
     public partial class SelectImageFrameWindow : Window
     {
+
         private SelectImageFrameWindow(int framesCount)
         {
             InitializeComponent();
+
             labelFrameCount.Content = string.Format((string)labelFrameCount.Content, framesCount);
             frameSelectSlider.Maximum = framesCount;
             frameSelectSlider.ValueChanged += new RoutedPropertyChangedEventHandler<double>(frameSelectSlider_ValueChanged);
         }
 
+
+
+        /// <summary>
+        /// Shows the dialog with frame selection.
+        /// </summary>
+        /// <param name="framesCount">Image frames count.</param>
         public static int SelectFrameIndex(int framesCount)
         {
             if (framesCount == 1)
@@ -33,5 +41,6 @@ namespace WpfSimpleBarcodeReaderDemo
         {
             DialogResult = true;
         }
+
     }
 }

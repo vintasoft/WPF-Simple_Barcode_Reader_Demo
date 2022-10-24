@@ -8,11 +8,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Microsoft.Win32;
 
-using Vintasoft.WpfBarcode;
-using Vintasoft.WpfBarcode.BarcodeInfo;
-using Vintasoft.WpfBarcode.SymbologySubsets;
-using Vintasoft.WpfBarcode.GS1;
-using Vintasoft.WpfBarcode.SymbologySubsets.AAMVA;
+using Vintasoft.Barcode;
+using Vintasoft.Barcode.BarcodeInfo;
+using Vintasoft.Barcode.SymbologySubsets;
 
 namespace WpfSimpleBarcodeReaderDemo
 {
@@ -78,6 +76,19 @@ namespace WpfSimpleBarcodeReaderDemo
 
 
         #region Constructors
+
+        /// <summary>
+        /// Initializes the <see cref="MainWindow"/> class.
+        /// </summary>
+        static MainWindow()
+        {
+#if NETCOREAPP
+            System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+#endif
+
+            // initialize Vintasoft.Barcode.Wpf Assembly
+            Vintasoft.Barcode.WpfAssembly.Init();
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MainWindow"/> class.
@@ -390,9 +401,9 @@ namespace WpfSimpleBarcodeReaderDemo
                 double x = inf.Region.LeftTop.X;
                 double y = inf.Region.LeftTop.Y;
                 Point leftTop = new Point(x, y);
-                Point rightTop = new Point(inf.Region.RightTop.X, inf.Region.RightTop.Y);
-                Point rightBottom = new Point(inf.Region.RightBottom.X, inf.Region.RightBottom.Y);
-                Point leftBottom = new Point(inf.Region.LeftBottom.X, inf.Region.LeftBottom.Y);
+                Point rightTop = WpfConverter.Convert(inf.Region.RightTop);
+                Point rightBottom = WpfConverter.Convert(inf.Region.RightBottom);
+                Point leftBottom = WpfConverter.Convert(inf.Region.LeftBottom);
                 lineSegments = new LineSegment[] {
                     new LineSegment(rightTop, true),
                     new LineSegment(rightBottom, true),

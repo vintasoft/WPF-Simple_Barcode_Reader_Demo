@@ -4,7 +4,7 @@ using System.Windows;
 using System.Windows.Documents;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using Vintasoft.WpfBarcode;
+using Vintasoft.Barcode;
 
 namespace WpfSimpleBarcodeReaderDemo
 {
@@ -35,7 +35,7 @@ namespace WpfSimpleBarcodeReaderDemo
             {
                 try
                 {
-                    images.Add(viewer.GetImage(pageIndex, imageNames[i]));
+                    images.Add(WpfConverter.Convert(viewer.GetImage(pageIndex, imageNames[i]), true));
                 }
                 catch (Exception e)
                 {

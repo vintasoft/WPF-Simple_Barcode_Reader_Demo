@@ -9,6 +9,9 @@ namespace WpfSimpleBarcodeReaderDemo
     /// </summary>
     public partial class DemoVersionRestrictionsWindow : Window
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="DemoVersionRestrictionsWindow"/> class.
+        /// </summary>
         public DemoVersionRestrictionsWindow()
         {
             InitializeComponent();
@@ -24,19 +27,9 @@ namespace WpfSimpleBarcodeReaderDemo
             OpenBrowser("https://www.vintasoft.com/docs/vsbarcode-dotnet/Licensing-Barcode-Evaluation.html");
         }
 
-        private void androidBarcodeScannerLinkLabel_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            OpenBrowser("https://play.google.com/store/apps/details?id=com.vintasoft.barcodescanner");
-        }
-
-        private void androidBarcodeGeneratorLinkLabel_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            OpenBrowser("https://play.google.com/store/apps/details?id=com.vintasoft.barcodegenerator");
-        }
-
         private void aspNetBarcodeScannerGeneratorLinkLabel_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            OpenBrowser("https://demos.vintasoft.com/AspNetMvcBarcodeAdvancedDemo/");
+            OpenBrowser("https://demos.vintasoft.com/AspNetCoreBarcodeAdvancedDemo/");
         }
 
         /// <summary>

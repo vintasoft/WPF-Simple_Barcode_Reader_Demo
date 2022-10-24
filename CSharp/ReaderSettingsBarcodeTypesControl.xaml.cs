@@ -6,8 +6,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Input;
 
-using Vintasoft.WpfBarcode;
-using Vintasoft.WpfBarcode.SymbologySubsets;
+using Vintasoft.Barcode;
+using Vintasoft.Barcode.SymbologySubsets;
 
 namespace WpfSimpleBarcodeReaderDemo
 {
