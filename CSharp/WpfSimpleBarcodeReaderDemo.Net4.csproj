@@ -84,8 +84,8 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Vintasoft.Barcode" Version="14.1.1.1" />
-    <PackageReference Include="Vintasoft.Barcode.Wpf" Version="14.1.1.1" />
+    <PackageReference Include="Vintasoft.Barcode" Version="14.1.2.1" />
+    <PackageReference Include="Vintasoft.Barcode.Wpf" Version="14.1.2.1" />
     <PackageReference Include="Vintasoft.Shared" Version="3.3.0.1" />
   </ItemGroup>
   <ItemGroup>
