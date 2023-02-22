@@ -40,7 +40,7 @@
   <ItemGroup>
     <PackageReference Include="Vintasoft.Barcode" Version="14.1.5.1" />
     <PackageReference Include="Vintasoft.Barcode.Wpf" Version="14.1.5.1" />
-    <PackageReference Include="Vintasoft.Shared" Version="3.3.0.1" />
+    <PackageReference Include="Vintasoft.Shared" Version="3.4.0.1" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
