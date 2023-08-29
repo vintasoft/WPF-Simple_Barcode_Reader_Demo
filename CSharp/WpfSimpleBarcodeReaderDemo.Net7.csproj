@@ -10,7 +10,7 @@
 
     <EnableDefaultItems>false</EnableDefaultItems>
 
-    <Version>14.1.11.1</Version>
+    <Version>14.1.12.1</Version>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>  
@@ -38,8 +38,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Vintasoft.Barcode" Version="14.1.11.1" />
-    <PackageReference Include="Vintasoft.Barcode.Wpf" Version="14.1.11.1" />
+    <PackageReference Include="Vintasoft.Barcode" Version="14.1.12.1" />
+    <PackageReference Include="Vintasoft.Barcode.Wpf" Version="14.1.12.1" />
     <PackageReference Include="Vintasoft.Shared" Version="4.0.0.3" />
   </ItemGroup>
   <ItemGroup>
