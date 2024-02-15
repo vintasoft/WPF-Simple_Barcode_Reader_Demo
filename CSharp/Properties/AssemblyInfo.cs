@@ -12,7 +12,7 @@ using System.Windows;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("VintaSoft Ltd.")]
 [assembly: AssemblyProduct("VintaSoft Barcode .NET SDK")]
-[assembly: AssemblyCopyright("Copyright VintaSoft Ltd. 2022")]
+[assembly: AssemblyCopyright("Copyright VintaSoft Ltd. 2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -51,6 +51,6 @@ using System.Windows;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("14.2.2.1")]
-[assembly: AssemblyFileVersion("14.2.2.1")]
+[assembly: AssemblyVersion("14.3.0.1")]
+[assembly: AssemblyFileVersion("14.3.0.1")]
 

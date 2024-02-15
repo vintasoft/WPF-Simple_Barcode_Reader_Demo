@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>net8.0-windows</TargetFramework>
     <UseWPF>true</UseWPF>
@@ -10,7 +10,7 @@
 
     <EnableDefaultItems>false</EnableDefaultItems>
 
-    <Version>14.2.2.1</Version>
+    <Version>14.3.0.1</Version>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>  
@@ -38,9 +38,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Vintasoft.Barcode" Version="14.2.2.1" />
-    <PackageReference Include="Vintasoft.Barcode.Wpf" Version="14.2.2.1" />
+    <PackageReference Include="Vintasoft.Barcode" Version="14.3.0.1" />
+    <PackageReference Include="Vintasoft.Barcode.Wpf" Version="14.3.0.1" />
     <PackageReference Include="Vintasoft.Shared" Version="4.1.2.1" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="8.0.0" />
   </ItemGroup>
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
@@ -48,6 +51,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Page Include="DemoVersionRestrictionsWindow.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="MainWindow.xaml">
@@ -55,6 +59,7 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Include="ReaderSettingsBarcodeTypesControl.xaml">
+      <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SelectImageFrameWindow.xaml">
@@ -69,7 +74,9 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="DemoVersionRestrictionsWindow.xaml.cs" />
+    <Compile Include="DemoVersionRestrictionsWindow.xaml.cs">
+      <DependentUpon>DemoVersionRestrictionsWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
@@ -77,7 +84,9 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ReaderSettingsBarcodeTypesControl.xaml.cs" />
+    <Compile Include="ReaderSettingsBarcodeTypesControl.xaml.cs">
+      <DependentUpon>ReaderSettingsBarcodeTypesControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="SelectImageFrameWindow.xaml.cs">
       <DependentUpon>SelectImageFrameWindow.xaml</DependentUpon>
     </Compile>

@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfSimpleBarcodeReaderDemo"
         mc:Ignorable="d"
-        Title="VintaSoft Barcode .NET SDK: Restrictions of DEMO version" Height="168" Width="497" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+        Title="VintaSoft Barcode .NET SDK: Restrictions of DEMO version" Height="188" Width="497" WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
     <StackPanel Orientation="Vertical">
         <Label>
             <AccessText TextWrapping="Wrap" Width="487">
