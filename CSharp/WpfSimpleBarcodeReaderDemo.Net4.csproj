@@ -90,9 +90,9 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Vintasoft.Barcode" Version="15.2.9.1" />
-    <PackageReference Include="Vintasoft.Barcode.Wpf" Version="15.2.9.1" />
-    <PackageReference Include="Vintasoft.Shared" Version="4.6.0.1" />
+    <PackageReference Include="Vintasoft.Barcode" Version="15.3.0.1" />
+    <PackageReference Include="Vintasoft.Barcode.Wpf" Version="15.3.0.1" />
+    <PackageReference Include="Vintasoft.Shared" Version="4.6.1.1" />
   </ItemGroup>
   <ItemGroup>  <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
