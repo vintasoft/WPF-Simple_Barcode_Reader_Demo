@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("VintaSoft WpfSimpleBarcodeReaderDemo")]
 [assembly: AssemblyDescription("VintaSoft WPF simple barcode reader demo")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("VintaSoft Llc.")]
+[assembly: AssemblyCompany("VintaSoft LLC")]
 [assembly: AssemblyProduct("VintaSoft Barcode .NET SDK")]
-[assembly: AssemblyCopyright("Copyright VintaSoft Llc. 2024")]
+[assembly: AssemblyCopyright("Copyright VintaSoft LLC 2026")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
