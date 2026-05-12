@@ -82,11 +82,34 @@ namespace WpfSimpleBarcodeReaderDemo
         /// </summary>
         static MainWindow()
         {
-            // register the evaluation license for VintaSoft Barcode .NET SDK
-            Vintasoft.Barcode.BarcodeGlobalSettings.Register("REG_USER", "REG_EMAIL", "EXPIRATION_DATE", "REG_CODE");
-
 #if NETCOREAPP
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
+#endif
+
+#if !DISABLE_AI
+            try
+            {
+                // initialize Vintasoft.Barcode.AI.1D assembly
+                Vintasoft.Barcode.Ai1DAssembly.Init();
+            }
+            catch
+            {
+#if DEBUG
+                throw;
+#endif
+            }
+
+            try
+            {
+                // initialize Vintasoft.Barcode.AI.2D assembly
+                Vintasoft.Barcode.Ai2DAssembly.Init();
+            }
+            catch
+            {
+#if DEBUG
+                throw;
+#endif
+            }
 #endif
 
             // initialize Vintasoft.Barcode.Wpf Assembly
@@ -295,11 +318,13 @@ namespace WpfSimpleBarcodeReaderDemo
 
             string value = info.Value;
 
-            if ((info.BarcodeType & BarcodeType.UPCE) != 0)
-                value += string.Format(" (UPC-E: {0})", (info as UPCEANInfo).UPCEValue);
-
-            if ((info.BarcodeType & BarcodeType.UPCA) != 0)
-                value += string.Format(" (UPC-A: {0})", (info as UPCEANInfo).UPCAValue);
+            if (info is UPCEANInfo)
+            {
+                if ((info.BarcodeType & BarcodeType.UPCE) != 0)
+                    value += string.Format(" (UPC-E: {0})", (info as UPCEANInfo).UPCEValue);
+                if ((info.BarcodeType & BarcodeType.UPCA) != 0)
+                    value += string.Format(" (UPC-A: {0})", (info as UPCEANInfo).UPCAValue);
+            }
 
             string confidence;
             if (info.Confidence == ReaderSettings.ConfidenceNotAvailable)
@@ -660,7 +685,10 @@ namespace WpfSimpleBarcodeReaderDemo
 
         private void trackBarExpectedBarcodes_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            labelExpectedBarcodes.Content = ((int)trackBarExpectedBarcodes.Value).ToString();
+            if (trackBarExpectedBarcodes.Value > 0)
+                labelExpectedBarcodes.Content = ((int)trackBarExpectedBarcodes.Value).ToString();
+            else
+                labelExpectedBarcodes.Content = "AUTO";
         }
 
         private void trackBarScanInterval_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)

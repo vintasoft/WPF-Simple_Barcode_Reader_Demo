@@ -10,7 +10,7 @@
 
     <EnableDefaultItems>false</EnableDefaultItems>
 
-    <Version>15.3.12.1</Version>
+    <Version>16.0.0.1</Version>
     <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
     <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
     <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>  
@@ -18,8 +18,8 @@
     <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
     <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>    
-
   </PropertyGroup>
+
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
@@ -37,14 +37,18 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="Vintasoft.Barcode" Version="15.3.12.1" />
-    <PackageReference Include="Vintasoft.Barcode.Wpf" Version="15.3.12.1" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime" Version="1.23.0" />
+    <PackageReference Include="Microsoft.ML.OnnxRuntime.Managed" Version="1.23.0" />
+    <PackageReference Include="System.Text.Encoding.CodePages" Version="8.0.0" />
+    <PackageReference Include="Vintasoft.Barcode" Version="16.0.0.1" />
+    <PackageReference Include="Vintasoft.Barcode.AI.1D" Version="16.0.0.2" />
+    <PackageReference Include="Vintasoft.Barcode.AI.2D" Version="16.0.0.2" />
+    <PackageReference Include="Vintasoft.Barcode.Wpf" Version="16.0.0.1" />
     <PackageReference Include="Vintasoft.Shared" Version="4.6.1.1" />
   </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="System.Text.Encoding.CodePages" Version="8.0.0" />
-  </ItemGroup>
+
   <ItemGroup>
     <ApplicationDefinition Include="App.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -97,4 +101,5 @@
     <AppDesigner Include="Properties\" />
     <Resource Include="App.ico" />
   </ItemGroup>
+
 </Project>

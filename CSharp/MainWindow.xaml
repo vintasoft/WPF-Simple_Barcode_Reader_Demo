@@ -18,10 +18,10 @@
                         <DockPanel Name="dockPanel14">
                             <DockPanel Height="20" Name="dockPanel15" DockPanel.Dock="Top" />
                             <DockPanel Name="dockPanel16" Height="36" DockPanel.Dock="Top">
-                                <Slider Name="trackBarExpectedBarcodes" Height="24" Maximum="50" Minimum="1" SmallChange="1" Value="1" TickPlacement="BottomRight" IsSnapToTickEnabled="True" IsSelectionRangeEnabled="False" />
+                                <Slider Name="trackBarExpectedBarcodes" Height="24" Maximum="50" Minimum="0" SmallChange="1" Value="0" TickPlacement="BottomRight" IsSnapToTickEnabled="True" IsSelectionRangeEnabled="False" />
                             </DockPanel>
                             <DockPanel Name="dockPanel17">
-                                <Label Name="labelExpectedBarcodes" HorizontalAlignment="Center" Width="25">1</Label>
+                                <Label Name="labelExpectedBarcodes" HorizontalAlignment="Center" VerticalAlignment="Center" HorizontalContentAlignment="Center" Width="50">AUTO</Label>
                             </DockPanel>
                         </DockPanel>
                     </GroupBox>
