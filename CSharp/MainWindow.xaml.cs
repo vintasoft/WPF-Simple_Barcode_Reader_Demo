@@ -121,6 +121,9 @@ namespace WpfSimpleBarcodeReaderDemo
         /// </summary>
         public MainWindow()
         {
+            // register the evaluation license for VintaSoft Barcode .NET SDK
+            Vintasoft.Barcode.BarcodeGlobalSettings.Register("REG_USER", "REG_EMAIL", "EXPIRATION_DATE", "REG_CODE");
+
             InitializeComponent();
 
             trackBarExpectedBarcodes.ValueChanged += new RoutedPropertyChangedEventHandler<double>(trackBarExpectedBarcodes_ValueChanged);
