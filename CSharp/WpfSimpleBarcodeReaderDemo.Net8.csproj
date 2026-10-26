@@ -10,7 +10,7 @@
 
 		<EnableDefaultItems>false</EnableDefaultItems>
 
-		<Version>16.1.0.1</Version>
+		<Version>16.1.1.1</Version>
 		<GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
 		<GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
 		<GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
